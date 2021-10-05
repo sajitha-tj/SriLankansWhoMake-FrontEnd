@@ -3,7 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  userRouteLink:'http://localhost:3000/api/v1/userRoute/',
+  allUsers:[],
+  skillSet:[
+    "Artist", "Art Director", "3D Designer", "Book Designer", "Brand Designer", "Copywriter", "Content Writer",
+    "Creative Director", "Data Scientist", "Film Maker", "Founder", "Graphic Designer", "Head", "Illustrator",
+    "Indie Maker", "Industrial Designer", "Interior Designer", "Lead", "Letterer", "Mentor", "Photographer", "Podcaster",
+    "Product Designer", "Speaker", "Software Engineer", "UI/UX Designer", "Writer"
+  ]
 };
 
 /*
