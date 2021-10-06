@@ -50,6 +50,10 @@
   background: url(~src/assets/facebook.png) content-box center no-repeat;
   background-size: contain;
 }
+.link-Btns[href*="facebook.com"] {
+  background: url(~src/assets/facebook.png) content-box center no-repeat;
+  background-size: contain;
+}
 .link-Btns[href*="insta"] {
   background: url(~src/assets/instagram.png) content-box center no-repeat;
   background-size: contain;
