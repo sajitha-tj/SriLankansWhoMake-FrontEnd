@@ -1,0 +1,60 @@
+.pro-pic-div{
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -2px rgb(0 0 0 / 5%);
+}
+.pro-pic-div,
+.pro-pic{
+  border-radius: 10px;
+}
+
+.pro-pic{
+  width: 80%;
+}
+.user-data{
+  width: 80%;
+}
+.user-name h1{
+  font-weight: 500;
+  font-size: 2em;
+}
+.tags-bar{
+  display: flex;
+  justify-content: left;
+}
+.tags{
+  border: 1px solid slategrey;
+  color: slategrey;
+  border-radius: 1em;
+  font-weight: 300;
+  margin-right: 5px;
+}
+.bio{
+  font-size: 1.5em;
+  font-weight: 300;
+}
+.link-Btns{
+  width: 25px;
+  height: 25px;
+  background-color: #c7c7c7;
+  display: flex;
+  margin-right: 5px;
+  border-radius: 100%;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+.link-bar{
+  display: flex;
+  justify-content: left;
+}
+.link-Btns[href*="fb.com"] {
+  background: url(~src/assets/facebook.png) content-box center no-repeat;
+  background-size: contain;
+}
+.link-Btns[href*="insta"] {
+  background: url(~src/assets/instagram.png) content-box center no-repeat;
+  background-size: contain;
+}
+.link-Btns[href*="twitter"] {
+  background: url(~src/assets/twitter.png) content-box center no-repeat;
+  background-size: contain;
+}

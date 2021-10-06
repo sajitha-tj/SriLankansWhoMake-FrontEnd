@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="row">
+    <!--======left-Bar====-->
+    <div class="d-none d-md-block col-md-3">
+      <!--==============search=============-->
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" #searchKeyword (keyup)="searchUser(searchKeyword.value)" (keydown.enter)="$event.preventDefault()">
+      </form>
+      <br>
+      <!--=============filter==========-->
+      <h3>Filter By:</h3>
+      <div class="form-check">
+        <mat-checkbox class="d-block" (click)="filterBy(filterKey)" #filterKey *ngFor="let skill of skillSet" name="{{skill}}">{{skill}}</mat-checkbox>
+      </div>
+
+
+    </div>
+
+    <!--======right-Bar=========-->
+    <div class="col-md-9">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 mb-2 col-sm-6 col-md-6 col-lg-4 col-xl-3" *ngFor="let user of users; index as num">
+            <div class="inner-div" routerLink="/user/{{user.userId}}">
+              <div class="inner-div-pic">
+                <img class="pro-Pic" src="favicon.ico" alt="img" width="100%">
+              </div>
+              <div class="inner-div-texts">
+                <h2 class="user-name">{{user.userName}}</h2>
+                <small>{{user.userLocation}}</small>
+                <p class="user-bio">
+                  {{user.userBio}}
+                </p>
+                <div class="w-100">
+                  <a class="link-Btns" *ngFor="let link of user.userLinks" href="{{link}}" target="_blank"></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--=========================================-->
+        <div class="row my-5 py-4" *ngIf="users?.length==0">
+          <div class="text-center">
+            <h1>Oops, Sorry!</h1>
+            <h2>No one found.</h2>
+          </div>
+        </div>
+      </div>
+      <div>
+        <mat-paginator [length]=1
+                       [pageSize]="10"
+                       [pageSizeOptions]="[5, 10, 25, 100]"
+                       aria-label="Select page" *ngIf="users?.length != 0">
+        </mat-paginator>
+
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,53 @@
+.inner-div{
+  //border: 2px solid midnightblue;
+  border-radius: 10px;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -2px rgb(0 0 0 / 5%);
+  cursor: pointer;
+  background-color: white;
+}
+.inner-div-pic{
+  overflow: hidden;
+  border-radius: 10px 10px 0 0;
+}
+.inner-div .pro-Pic{
+  transition: transform 1s;
+}
+.inner-div:hover .pro-Pic{
+  transform: scale(1.2);
+}
+.inner-div-texts{
+  padding: 5px;
+}
+.pro-Pic{
+  width: 100%;
+}
+.user-name{
+  margin-bottom: 2px;
+}
+.user-bio{
+  height: 3em;
+  overflow: hidden;
+}
+
+.link-Btns{
+  width: 30px;
+  height: 30px;
+  padding: 5px;
+  background-color: #c7c7c7;
+  display: inline-block;
+  /*margin-right: 2.5px;*/
+  background-color: lightgrey;
+  border-radius: 100%;
+}
+.link-Btns[href*="fb.com"] {
+  background: url(~src/assets/facebook.png) content-box center no-repeat;
+  background-size: contain;
+}
+.link-Btns[href*="insta"] {
+  background: url(~src/assets/instagram.png) content-box center no-repeat;
+  background-size: contain;
+}
+.link-Btns[href*="twitter"] {
+  background: url(~src/assets/twitter.png) content-box center no-repeat;
+  background-size: contain;
+}
