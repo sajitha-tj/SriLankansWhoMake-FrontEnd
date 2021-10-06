@@ -22,6 +22,7 @@ export class DirectoryComponent implements OnInit {
 
     this._userService.getAllUsers().subscribe(response => {
       this.Allusers = response.dataSet;
+      this.Allusers = this.shuffleArray(this.Allusers);
       this.users = this.Allusers;
       environment.allUsers = this.Allusers;
     },error => {
@@ -68,5 +69,23 @@ export class DirectoryComponent implements OnInit {
       this.users = this.Allusers;
     }
 
+  }
+
+  shuffleArray(array: any[]):any[] {
+    let currentIndex = array.length,  randomIndex;
+
+    // While there remain elements to shuffle...
+    while (currentIndex != 0) {
+
+      // Pick a remaining element...
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+
+      // And swap it with the current element.
+      [array[currentIndex], array[randomIndex]] = [
+        array[randomIndex], array[currentIndex]];
+    }
+
+    return array;
   }
 }
