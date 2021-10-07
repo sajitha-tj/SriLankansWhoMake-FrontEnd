@@ -36,7 +36,7 @@ import {AuthGuardService} from "./services/auth-guard.service";
     HttpClientModule,
     MatCheckboxModule
   ],
-  providers: [AuthGuardService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

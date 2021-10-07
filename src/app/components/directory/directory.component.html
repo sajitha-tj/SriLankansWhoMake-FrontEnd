@@ -20,7 +20,7 @@
     <div class="col-md-9">
       <div class="container">
         <div class="row">
-          <div class="col-xs-12 mb-2 col-sm-6 col-md-6 col-lg-4 col-xl-3" *ngFor="let user of users; index as num">
+          <div class="col-xs-12 mb-2 col-sm-6 col-md-6 col-lg-4 col-xl-3" *ngFor="let user of displayUsers; index as num">
             <div class="inner-div" routerLink="/user/{{user.userId}}">
               <div class="inner-div-pic">
                 <img class="pro-Pic" src="favicon.ico" alt="img" width="100%">
@@ -40,7 +40,7 @@
         </div>
 
         <!--=========================================-->
-        <div class="row my-5 py-4" *ngIf="users?.length==0">
+        <div class="row my-5 py-4" *ngIf="displayUsers?.length==0">
           <div class="text-center">
             <h1>Oops, Sorry!</h1>
             <h2>No one found.</h2>
@@ -48,10 +48,10 @@
         </div>
       </div>
       <div>
-        <mat-paginator [length]=1
-                       [pageSize]="10"
+        <mat-paginator [length]="users?.length"
+                       [pageSize]="pageSize"
                        [pageSizeOptions]="[5, 10, 25, 100]"
-                       aria-label="Select page" *ngIf="users?.length != 0">
+                       aria-label="Select page" *ngIf="displayUsers?.length != 0"  (page)="paginatorFunc($event)">
         </mat-paginator>
 
       </div>

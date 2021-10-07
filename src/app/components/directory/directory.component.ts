@@ -8,8 +8,10 @@ import {environment} from "../../../environments/environment";
   styleUrls: ['./directory.component.scss']
 })
 export class DirectoryComponent implements OnInit {
+  pageSize: number = 5;
   Allusers: any;
   users: any;
+  displayUsers: any;
   tempUsers: any[]=[];
   filterByArray: any[]=[];
   skillSet:any[]=[];
@@ -24,17 +26,20 @@ export class DirectoryComponent implements OnInit {
       this.Allusers = response.dataSet;
       this.Allusers = this.shuffleArray(this.Allusers);
       this.users = this.Allusers;
+      this.displayUsers = this.users.slice(0,this.pageSize);
       environment.allUsers = this.Allusers;
+
     },error => {
       console.log(error)
     });
+
   }
 
   searchUser(searchKeyword:string) {
     if(searchKeyword.toLowerCase()===""){
-      this.users = this.Allusers;
+      this.displayUsers = this.users;
     }else{
-      this.users = this.Allusers.filter((user:any) => {
+      this.displayUsers = this.users.filter((user:any) => {
         return user.userName.toLowerCase().indexOf(searchKeyword.toLowerCase()) > -1
           || user.userLocation.toLowerCase().indexOf(searchKeyword.toLowerCase()) > -1;
       });
@@ -51,8 +56,10 @@ export class DirectoryComponent implements OnInit {
 
       if(this.filterByArray.length === 1){
         this.users = this.tempUsers;
+        this.displayUsers = this.users.slice(0,this.pageSize);
       }else{
         this.users = this.users.concat(this.tempUsers);
+        this.displayUsers = this.users.slice(0,this.pageSize);
       }
 
     }else{
@@ -64,9 +71,11 @@ export class DirectoryComponent implements OnInit {
       this.users = this.users.filter((user:any) => {
         return !user.userSkills.includes(filterKey.name);
       });
+      this.displayUsers = this.users.slice(0,this.pageSize);
     }
     if(this.filterByArray.length===0){
       this.users = this.Allusers;
+      this.displayUsers = this.users.slice(0,this.pageSize);
     }
 
   }
@@ -87,5 +96,10 @@ export class DirectoryComponent implements OnInit {
     }
 
     return array;
+  }
+
+  paginatorFunc(event: any) {
+    this.pageSize = event.pageSize;
+    this.displayUsers = this.users.slice(event.pageIndex*event.pageSize, (event.pageIndex+1)*event.pageSize)
   }
 }

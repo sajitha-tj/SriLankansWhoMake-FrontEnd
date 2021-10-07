@@ -16,7 +16,15 @@ export class UserPageComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.user = environment.allUsers.filter(({userId})=> userId===this.linkRoute.snapshot.params.id)[0];
+    if(environment.allUsers.length>0) {
+      this.user = environment.allUsers.filter(({userId}) => userId === this.linkRoute.snapshot.params.id)[0];
+    }else{
+      this._userService.getUser(this.linkRoute.snapshot.params.id).subscribe(response=>{
+      this.user = response.dataSet;
+    },error => {
+      alert("An error occurred "+error);
+    });
+    }
 
   }
 

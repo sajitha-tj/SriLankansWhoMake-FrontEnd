@@ -1,4 +1,4 @@
-<div class="container pt-3">
+<div class="container pt-3" *ngIf="user">
   <div class="row d-flex align-items-center">
     <div class="col-md-6">
       <div class="pro-pic-div w-100">
@@ -42,3 +42,7 @@
     </div>
   </div>
 </div>
+
+<!--============User Not Found==========-->
+<app-page-not-found *ngIf="!user"></app-page-not-found>
+<!--============User Not Found==========-->
